@@ -1,0 +1,25 @@
+use('BigOIL'); 
+ // The drop() command destroys all data from a collection. 
+// Make sure you run it against the correct database and collection. 
+db.data.drop(); 
+ 
+// Insert a few documents into the stock collection. 
+db.data.insertMany([ 
+  { '_id': 1, 'name': 'rigID', 'price': 0.80, 'quantity': 2 }, 
+  { '_id': 2, 'name': 'deviceID', 'price': 0.90, 'quantity': 1 }, 
+  { '_id': 3, 'name': 'sensorData', 'price': 0.70, 'quantity': 10 }, 
+  { '_id': 4, 'name': 'timeStamp', 'price': 0.85, 'quantity':  20 }, 
+  ]);
+
+use('BigOIL'); 
+db.getCollection('data') 
+  .find( 
+    { 
+    }, 
+    { 
+      name: 1 
+    } 
+  ) 
+  .sort({ 
+      name: 1 
+  });
